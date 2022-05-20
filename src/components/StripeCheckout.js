@@ -91,7 +91,7 @@ const CheckoutForm = () => {
   };
 
   return (
-    <div>
+    <div style={{ textAlign: "center" }}>
       {succeeded ? (
         <article>
           <h4>Thank you</h4>
@@ -111,7 +111,11 @@ const CheckoutForm = () => {
           options={cardStyle}
           onChange={handleChange}
         />
-        <button disabled={processing || disabled || succeeded} id="submit">
+        <button
+          disabled={processing || disabled || succeeded}
+          id="submit"
+          style={{ textAlign: "center" }}
+        >
           <span id="button-text">
             {processing ? <div className="spinner" id="spinnier"></div> : "Pay"}
           </span>
