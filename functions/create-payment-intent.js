@@ -14,6 +14,18 @@ exports.handler = async function (event, context) {
       const paymentIntent = await stripe.paymentIntents.create({
         amount: calculateOrderAmount(),
         currency: "usd",
+        description: "test payment",
+        shipping: {
+          name: "Jenny Rosen",
+          address: {
+            line1: "510 Townsend St",
+            postal_code: "98140",
+            city: "San Francisco",
+            state: "CA",
+            country: "US",
+          },
+        },
+        payment_method_types: ["card"],
       });
       return {
         statusCode: 200,
